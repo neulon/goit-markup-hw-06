@@ -230,6 +230,8 @@ img {
 }
 
 .main-button {
+  display: flex;
+  margin: 0 auto;
   border: none;
   background-color: var(--hover-text);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -247,6 +249,9 @@ img {
   font-family: inherit;
 
   transition: background-color var(--animation) ;
+
+  justify-content: center;
+  align-items: center;
 }
 
 .main-button:focus,
@@ -347,10 +352,7 @@ img {
   color: var(--hover-text);
 }
 
-.footer-container {
-  display: flex;
-  flex-direction: column;
-}
+
 
 .address-item:not(:last-child) {
   margin-bottom: 9px;
@@ -495,6 +497,11 @@ img {
 
 /* footer-socials-icon & subscribe-input */
 
+.footer-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .footer>.container {
   display: flex;
   gap: 70px;
@@ -513,14 +520,12 @@ img {
 }
 
 .subscribe-box {
-  display: ;
+  margin-left: auto;
 }
 
-.subscribe-title {
-  line-height: 1.14;
-  color: var(--white-text);
-  text-transform: uppercase;
-  margin-bottom: 20px;
+.subscribe-form {
+  display: flex;
+  gap: 12px;
 }
 
 .subscribe-input {
@@ -528,7 +533,6 @@ img {
   height: 50px;
   line-height: 1.25;
   padding: 16px 15px;
-  margin-right: 12px;
 
   outline: none;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -536,29 +540,21 @@ img {
 
   background-color: transparent;
   color: var(--white-text);
+
+  transition: border var(--animation);
+}
+
+.subscribe-input:hover,
+.subscribe-input:focus {
+ border: 1px solid var(--hover-text)
 }
 
 .subscribe-btn {
-  width: 200px;
-  height: 50px;
-
-  padding: 0;
-  padding: ;
-
-  border: none;
-
-  background-color: var(--hover-text);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  color: var(--white-text);
-  font-weight: 700;
+  padding: 10px 28px;
 
   display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
 
-  cursor: pointer;
+  gap: 10px;
 }
 
 .subscribe-icon {
@@ -669,31 +665,39 @@ img {
 
 .modal-form-group{
   text-align: center;
-  margin-top: 12px;
+  margin-bottom: 20px;
 }
 
 .modal-form-title {
-  font-weight: 700px;
+  font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
   color: var(--main-text);
+  margin-bottom: 12px;
+  display: block;
 }
 
 .modal-form-box {
-  position: relative;
-  display: block;
+  
+  display: flex;
+  flex-direction: column;
+}
 
+.modal-form-box:not(last-child) {
   margin-bottom: 10px;
 }
 
 .modal-form-lable {
-  display: block;
   text-align: left;
   margin-bottom: 4px;
 
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.01em;
+}
+
+.modal-form__wrapper {
+  position: relative;
 }
 
 .modal-form-input,
@@ -727,7 +731,8 @@ img {
 .modal-form-icon {
   position: absolute;
   left: 12px;
-  bottom: 11px;
+  top: 50%;
+  transform: translateY(-50%) ;
 
   fill: var(--main-text);
   transition: fill var(--animation);
@@ -735,6 +740,7 @@ img {
 
 .modal-form-message {
   resize: none;
+  height: 120px;
 
   padding: 13px 16px;
 }
@@ -750,6 +756,8 @@ img {
   gap: 9px;
 
   margin-bottom:30px ;
+
+  cursor: pointer;
 }
 
 .modal-checkbox {
@@ -772,15 +780,16 @@ img {
 
 .form-icon-check,
 .form-icon-uncheck {
-  transition: opacity var(--animation);
+  transition: fill var(--animation);
 }
 
 .modal-checkbox:checked + .form-icon .form-icon-check {
   opacity: 1;
 }
 
-.modal-checkbox:checked + .form-icon .form-icon-uncheck {
-  opacity: 0;
+.modal-checkbox:hover + .form-icon .form-icon-uncheck,
+.modal-checkbox:focus + .form-icon .form-icon-uncheck {
+  fill: var(--hover-text);
 }
 
 .modal-checkbox-text {
@@ -788,20 +797,12 @@ img {
   text-underline-position: under;
 }
 
-.submit-btn {
-  width: 200px;height: 50px;
+.agreement-link {
+  color: var(--hover-text);
+}
 
-  border: none;
-  background: var(--hover-text);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-
-  color: var(--white-text);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.9;
-  letter-spacing: 0.06em;
-  transition: background-color var(--animation);
+.agreement-link:visited {
+  color: var(--hover-text);
 }
 
 .submit-btn:hover,
